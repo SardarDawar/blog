@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load social_share %}
+
+<style>
+    .new a {
+
+        color: blue;
+        font-style: italic;
+    }
+
+    .button {
+        border: solid blue 2px;
+        border-radius: 5px;
+        font-style: italic;
+        margin-left: 300px;
+
+    }
+
+    .button a {
+        color: blue
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class=" container" style='background: white;'>
+    <div class="row">
+        <div class="col-md-8 col-xs-8 col-sm-8">
+               
+            <h3 style="font-style:italic">{{blogs.title}}</h3>
+            by <a href="{% url 'blog-by-author' blogs.author.id %}">{{blogs.author.author}}</a><br><br><br>
+   
+            <img src="/media/{{blogs.image}}" style="width: 700px;height:500px;"><br><br>
+            <p><strong> About </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{blogs.description}}</p>
+                    <i>Published at: {{blogs.created_at|date}}</i>
+               
+
+              
+
+           
+
+
+            <!--1-->
+
+                    
+                {% for i in example %}
+                        <h3 style="font-style:italic">{{i.title}}</h3>
+                        <br>
+                        <img src="/media/{{i.image}}" style="width: 700px;height:500px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Author</p>
+                                <p>{{i.author}}</a><br>
+                                <i>Published at: {{blogs.created_at|date}}</i>
+                            </div>
+                            <div class="col-md-4">
+                                <p>Links</p>
+                                <a href={{i.links}}>demo and code</a>
+                            </div>
+                            <p>Made With</p>
+                            <div class="col-md-4">{{i.madewith}}</div>
+                        </div>
+                        <p>About &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{i.description}}</p>
+                        <i>Compatibility</i>&nbsp;&nbsp;&nbsp;
+                        <solid>{{i.compatible}}</solid>
+                        <br>
+                        <i>Dependencies</i>&nbsp;&nbsp;&nbsp;
+                        <solid>{{i.dependencies}}</solid><br>
+                        {% if i.responsive %}
+                        <i>Responsiveness</i>&nbsp;&nbsp;&nbsp;
+                        <solid>{{i.responsive}}</solid>
+
+                        {% endif %}
+                        <br> <br> <br>
+{% endfor %}
+
+                </div>          
+                <div class="post-grid col-md-4 col-xs-4 col-sm-4">
+
+                    <br><br>
+                    <div class="panel panel-default" style="margin-right:10px">
+                        <div class="panel-heading">
+                            <div class=" panel-title"><strong> Popular Blogs </strong></div>
+                        </div>
+                        <div class="panel-body">
+
+                            {% for list in list  %}
+                            {% if forloop.counter <= 6 %}
+                            {% if list.image %}
+                            <img src="/media/{{list.image}}" style="height:50px;width:50px">
+                         
+                            {% endif %}
+                            <a href="{% url 'detail' list.slug %}" style="color:black">{{list.title}}</a><br>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
