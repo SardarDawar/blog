@@ -33,6 +33,7 @@ class Category(models.Model):
 
 class code_post(models.Model):
     catagory    =       models.ForeignKey(Category,on_delete=models.CASCADE)
+    sub_category=       models.CharField(max_length=100)
     author      =       models.ForeignKey(BlogAuthor, on_delete=models.CASCADE, null=True)
     title       =       models.CharField(max_length=1000)
     slug        =       models.CharField(max_length=1000)

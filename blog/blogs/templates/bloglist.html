@@ -47,27 +47,7 @@ By <a href="{% url 'blog-by-author' blogs.author.id %}">{{blogs.author.author}}<
 {% endif %}
 
 </div> 
- <div class="col-xs-4">
 
-    <div class="panel panel-default" style="margin-right:10px">
-        <div class="panel-heading">
-            <div class=" panel-title"><strong> Popular Blogs </strong></div>
-        </div>
-        <div class="panel-body">
-
-            {% for list in blog  %}
-                {% if forloop.counter <= 5 %}
-                {% if list.image %}
-            <img src="/media/{{list.image}}" style="height:50px;width:50px">
-          
-            {% endif %}
-            <a href="{% url 'detail' list.slug %}" style="color:black">{{list.title}}</a><br>
-           {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-   
- </div>
 </div></div>
 
 {% endblock %}

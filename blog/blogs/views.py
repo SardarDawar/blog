@@ -121,3 +121,12 @@ def privacy(request):
 
 def affiliations(request):
     return render(request,'affiliations.html',{})
+
+  
+from django.http import HttpResponseNotFound  
+  
+def myView(request, param):  
+  if not param:  
+    return HttpResponseNotFound('<h1>No Page Here</h1>')  
+  
+  return render_to_response('404.html')  
