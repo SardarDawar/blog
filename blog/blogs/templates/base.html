@@ -6,68 +6,81 @@
 
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
 
-<body >
+    <body >
+        <div class="container">
+            <div class="sidebar">
 
-     
+                <nav>
+                    <ul>
+                        <li><h4><a href="{% url 'list' %}" rel="home">Dev Devout</a></h4></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </nav>
+                
 
+            </div>  
 
+            <div class="header">
+                    <div>
+                            <form  action="/search/">
+                                <input type="text" class="field" name="query" id="s" placeholder="Search" />
+                                <button type="submit" class="submit" name="submit" >Submit</button>
+                            </form>        
+                        </div>
+                    <!--Content before waves-->
+                    <div class="inner-header flex">
+                    <h1>Devoted to Web Development</h1>
+                    </div>
+                    
+                    <!--Waves Container-->
+                    <div>
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                    </svg>
+                    </div>
+                    <!--Waves end-->
+                    
+                    </div>
+                    <!--Header ends-->
+                
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
 
-<div class="container-bs">
-    <div id="navbar">
-        <div id="logo">
-            <h1><a href="{% url 'list' %}" rel="home">Dev Devout</a></h1>
+            <div class="footer">
+                <div class="footer-nav">
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                            <li><a href="{% url 'affiliations' %}">Affiliate Disclosure</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer-copyright">
+                    <p>© {% now "Y" %} | Dev Devout | All Rights Reserved</p>
+                </div>
+            </div>
         </div>
-        <div id="links">
-            <!-- <a href="/category/html">HTML</a>
-            <a href="/category/css">CSS</a>
-            <a href="/category/javascript">JavaScript</a> -->
-           
-           
-            <div  style='background: white;'>
-                    <form  action="/search/">
-            <input type="text" class="field" name="query" id="s" placeholder="Search" />
-            <button type="submit" class="submit" name="submit" >Submit</button>
-        </form>        </div>
-        </div>
-    </div>
- 
-    <div class="content">
-        <br><br><br>
-        {% block content %}{% endblock %}
-    </div>
-    <div class="footer">
-        <div class="footer-nav">
-            <nav>
-                <ul>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
-                    <li><a href="{% url 'affiliations' %}">Affiliate Disclosure</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="footer-copyright">
-            <p>© {% now "Y" %} | Dev Devout | All Rights Reserved</p>
-        </div>
-    </div>
-</div>
-            
-
-                 
-          	
-                        
-                     
-     
-            
-            
-
-            
-  
-       </body></head></html>
+    </body>
+</html>

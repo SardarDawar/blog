@@ -25,60 +25,56 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<div class=" container" style='background: white;'>
-    <div class="row">
-        <div class="col-md-8 col-xs-8 col-sm-8">
+<div>
+  
+        
                
-            <h3 style="font-style:italic">{{blogs.title}}</h3>
-            by <a href="{% url 'blog-by-author' blogs.author.id %}">{{blogs.author.author}}</a><br><br><br>
-   
-            <img src="/media/{{blogs.image}}" style="width: 700px;height:500px;"><br><br>
-            <p><strong> About </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{blogs.description}}</p>
-                    <i>Published at: {{blogs.created_at|date}}</i>
-               
-
-              
-
+            
            
-
-
+   
+            <img src="/media/{{blogs.image}}" style="width: 1000px;height:600px;"><br><br>
+            <h1 style="font-style:italic">{{blogs.title}}</h1>
+            by <a href="{% url 'blog-by-author' blogs.author.id %}">{{blogs.author.author}}</a>
+            <p>{{blogs.description}}</p>
+            <i>{{blogs.created_at|date}}</i> <br><br><br>
+               
             <!--1-->
 
                     
                 {% for i in example %}
-                        <h3 style="font-style:italic">{{i.title}}</h3>
                         <br>
-                        <img src="/media/{{i.image}}" style="width: 700px;height:500px;">
+                        <img src="/media/{{i.image}}" style="width: 900px;height:533px;">
+                        <h4>Title: {{i.title}}</h4>
                         <div class="row">
                             <div class="col-md-4">
-                                <p>Author</p>
+                                <p>Author:</p>
                                 <p>{{i.author}}</a><br>
-                                <i>Published at: {{blogs.created_at|date}}</i>
+                                <i>Created on: {{blogs.created_at|date}}</i>
                             </div>
                             <div class="col-md-4">
-                                <p>Links</p>
+                                <p>Link(s):</p>
                                 <a href={{i.links}}>demo and code</a>
                             </div>
-                            <p>Made With</p>
+                            <p>Made With:</p>
                             <div class="col-md-4">{{i.madewith}}</div>
                         </div>
-                        <p>About &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{i.description}}</p>
-                        <i>Compatibility</i>&nbsp;&nbsp;&nbsp;
+                        <p>About: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{i.description}}</p>
+                        <i>Compatibility:</i>&nbsp;&nbsp;&nbsp;
                         <solid>{{i.compatible}}</solid>
                         <br>
-                        <i>Dependencies</i>&nbsp;&nbsp;&nbsp;
+                        <i>Dependencies:</i>&nbsp;&nbsp;&nbsp;
                         <solid>{{i.dependencies}}</solid><br>
                         {% if i.responsive %}
-                        <i>Responsiveness</i>&nbsp;&nbsp;&nbsp;
+                        <i>Responsive:</i>&nbsp;&nbsp;&nbsp;
                         <solid>{{i.responsive}}</solid>
 
                         {% endif %}
                         <br> <br> <br>
 {% endfor %}
 
-                </div>          
+                       
            
-            </div>
+            
         </div>
     </div>
 </div>
