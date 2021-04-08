@@ -12,7 +12,7 @@ chardet==3.0.4
 cms==0.0.2
 cssselect2==0.2.1
 defusedxml==0.6.0
-Django==2.2.3
+Django==2.2.20
 django-allauth==0.39.1
 django-autocomplete-light==3.4.1
 django-bootstrap-pagination==1.7.1
